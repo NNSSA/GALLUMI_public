@@ -20,6 +20,9 @@ This GitHub page contains 1) the GALLUMI likelihood code, 2) scripts to generate
     python2 montepython/MontePython.py run --conf default.conf --param Param_files/UVLF_HST_ST_model1.param --bestfit Bestfits/UVLF_HST_ST_model1.bestfit --covmat Covmats/UVLF_HST_ST_model1.covmat -f 0.5 --output UVLF_HST_ST_model1
     ``` 
 ## Example Plot
+All plots in the papers 2110.XXXX and 2110.XXXX can be reproduced using the scripts provided in the Scripts/Plotting/ folder.
+
+![sampleplot](sampleplot.png)
 
 ## Using GALLUMI in Publications
 If you make use of the GALLUMI code in your publication, please cite the papers 2110.XXXX and 2110.XXXX.
