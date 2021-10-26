@@ -1,0 +1,32 @@
+data.experiments=['UVLF_IllustrisTNG_ST_model1', 'Pantheon']
+
+data.over_sampling=[1, 3, 1]
+
+data.parameters['sigma8']           = [0.8120, 0.1, 3., 0.3, 1, 'cosmo']
+data.parameters['omega_m']          = [0.1432, 0., 1., 0.02, 1, 'cosmo']
+data.parameters['omega_b']          = [2.236, 0., None, 0.5, 0.01, 'cosmo']
+data.parameters['n_s']              = [0.9649, 0.7, 1.3, 0.2, 1, 'cosmo']
+
+data.parameters['alphastar']              = [-6.499906e-01, -3., 0, 0.2, 1, 'nuisance']
+data.parameters['betastar']               = [5.830253e-01, 0., 3., 0.1, 1, 'nuisance']
+data.parameters['epsilonstar_slope']      = [-1.250277e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['epsilonstar_icept']      = [-2.065852e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['Mc_slope']               = [1.241402e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['Mc_icept']               = [1.191313e+01, 7., 15., 0.5, 1, 'nuisance']
+data.parameters['sigma_MUV']              = [1.149963e-02, 0.001, 3., 0.1, 1, 'nuisance']
+data.parameters['Q']                      = [2.089035e+00, 1.5, 2.5, 0.1, 1, 'nuisance']
+data.parameters['M']                      = [-1.943457e+01, None, None, 0.05,  1, 'nuisance']
+
+data.parameters['h']                     = [0.7, None, None, 0, 1, 'derived']
+data.parameters['Omega_m']               = [0.3, None, None, 0, 1, 'derived']
+
+data.cosmo_arguments['100*theta_s'] = 1.04112
+data.cosmo_arguments['tau_reio'] = 0.066
+data.cosmo_arguments['k_pivot'] = 0.05
+data.cosmo_arguments['output'] = 'mPk'
+data.cosmo_arguments['P_k_max_1/Mpc'] = 30.
+data.cosmo_arguments['z_max_pk'] = 10.
+data.cosmo_arguments['N_ur'] = 3.044
+
+data.N=1000000
+data.write_step=1

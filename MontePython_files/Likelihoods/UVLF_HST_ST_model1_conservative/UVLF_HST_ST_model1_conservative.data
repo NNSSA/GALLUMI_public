@@ -1,0 +1,16 @@
+UVLF_HST_ST_model1_conservative.c = 299792.458
+UVLF_HST_ST_model1_conservative.rho_crit = 2.77463e11
+UVLF_HST_ST_model1_conservative.kappaUV = 1.15e-28
+UVLF_HST_ST_model1_conservative.invMpctoinvYear = 3.066067275784999e-07
+UVLF_HST_ST_model1_conservative.AST = 0.3222
+UVLF_HST_ST_model1_conservative.aST = 0.707
+UVLF_HST_ST_model1_conservative.pST = 0.3
+UVLF_HST_ST_model1_conservative.deltaST = 1.686
+
+UVLF_HST_ST_model1_conservative.h_HST = 0.7
+UVLF_HST_ST_model1_conservative.Omega_m_HST = 0.3
+
+UVLF_HST_ST_model1_conservative.omegab_BBN = 0.02233
+UVLF_HST_ST_model1_conservative.omegab_BBN_error = 0.00036
+
+UVLF_HST_ST_model1_conservative.use_nuisance = ['alphastar_z4', 'alphastar_z5', 'alphastar_z6', 'alphastar_z7', 'alphastar_z8', 'alphastar_z9', 'alphastar_z10', 'betastar_z4', 'betastar_z5', 'betastar_z6', 'betastar_z7', 'betastar_z8', 'betastar_z9', 'betastar_z10', 'logepsilonstar_z4', 'logepsilonstar_z5', 'logepsilonstar_z6', 'logepsilonstar_z7', 'logepsilonstar_z8', 'logepsilonstar_z9', 'logepsilonstar_z10', 'logMc_z4', 'logMc_z5', 'logMc_z6', 'logMc_z7', 'logMc_z8', 'logMc_z9', 'logMc_z10', 'sigma_MUV', 'Q']

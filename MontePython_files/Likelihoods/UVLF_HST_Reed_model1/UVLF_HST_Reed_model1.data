@@ -1,0 +1,17 @@
+UVLF_HST_Reed_model1.c = 299792.458
+UVLF_HST_Reed_model1.rho_crit = 2.77463e11
+UVLF_HST_Reed_model1.kappaUV = 1.15e-28
+UVLF_HST_Reed_model1.invMpctoinvYear = 3.066067275784999e-07
+UVLF_HST_Reed_model1.ARd = 0.3235
+UVLF_HST_Reed_model1.aRd = 0.707
+UVLF_HST_Reed_model1.pRd = 0.3
+UVLF_HST_Reed_model1.deltaRd = 1.686
+UVLF_HST_Reed_model1.caRd = 0.764
+
+UVLF_HST_Reed_model1.h_HST = 0.7
+UVLF_HST_Reed_model1.Omega_m_HST = 0.3
+
+UVLF_HST_Reed_model1.omegab_BBN = 0.02233
+UVLF_HST_Reed_model1.omegab_BBN_error = 0.00036
+
+UVLF_HST_Reed_model1.use_nuisance = ['alphastar', 'betastar', 'epsilonstar_slope', 'epsilonstar_icept', 'Mc_slope', 'Mc_icept', 'sigma_MUV', 'Q']

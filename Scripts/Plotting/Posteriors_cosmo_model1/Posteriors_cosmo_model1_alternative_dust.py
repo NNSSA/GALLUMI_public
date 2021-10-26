@@ -1,0 +1,162 @@
+import numpy as np
+from matplotlib import pyplot as plt
+import glob
+from matplotlib import patches as mpatches
+import scipy.ndimage
+from scipy.interpolate import PchipInterpolator
+plt.style.use("../template.mplstyle")
+
+# purple - green - darkgoldenrod - blue - red
+colors = ['purple', '#306B37', 'darkgoldenrod', '#3F7BB6', '#BF4145']
+linestyles = [(0, (1,1.05)), (0, (3, 1, 1, 1)), (0, (1,3)), (0, (3,3.65)), (0, (3,2.772)), (0, (3, 1, 1, 1, 1, 1))]
+
+#########################################################################################
+
+def ctr_level2d(histogram2d, lvl, infinite=False):
+    hist = histogram2d.flatten()*1.
+    hist.sort()
+    cum_hist = np.cumsum(hist[::-1])
+    cum_hist /= cum_hist[-1]
+
+    alvl = np.searchsorted(cum_hist, lvl)[::-1]
+    clist = [0]+[hist[-i] for i in alvl]+[hist.max()]
+    if not infinite:
+        return clist[1:]
+    return clist
+
+def get_hist2d(datax, datay, num_bins=40, weights=[None]):
+    if not any(weights):
+        weights = np.ones(len(datax))
+    hist, bin_edgesx, bin_edgesy = np.histogram2d(datax, datay, bins=num_bins, weights=weights)
+    bin_centresx = 0.5*(bin_edgesx[1:]+bin_edgesx[:-1])
+    bin_centresy = 0.5*(bin_edgesy[1:]+bin_edgesy[:-1])
+    return hist, bin_edgesx, bin_edgesy, bin_centresx, bin_centresy
+
+def adjust_lightness(color, amount=0.5):
+    import matplotlib.colors as mc
+    import colorsys
+    try:
+        c = mc.cnames[color]
+    except:
+        c = color
+    c = colorsys.rgb_to_hls(*mc.to_rgb(c))
+    return colorsys.hls_to_rgb(c[0], max(0, min(1, amount * c[1])), c[2])
+
+def plot_hist2d(datax, datay, ax, num_bins=30, weights=[None], color=None, zorder=0):
+    if not any(weights):
+        weights = np.ones(len(datax))
+    if color == None:
+        color="black"
+
+    hist, bin_edgesx, bin_edgesy, bin_centresx, bin_centresy = get_hist2d(datax, datay, num_bins=num_bins, weights=weights)
+
+    interpolation_smoothing = 3.
+    gaussian_smoothing = 0.5
+    sigma = interpolation_smoothing * gaussian_smoothing
+
+    interp_y_centers = scipy.ndimage.zoom(bin_centresy, interpolation_smoothing, mode='reflect')
+    interp_x_centers = scipy.ndimage.zoom(bin_centresx,interpolation_smoothing, mode='reflect')
+    interp_hist = scipy.ndimage.zoom(hist, interpolation_smoothing, mode='reflect')
+    interp_smoothed_hist = scipy.ndimage.filters.gaussian_filter(interp_hist, [sigma,sigma], mode='reflect')
+
+    ax.contourf(interp_x_centers, interp_y_centers, np.transpose(interp_smoothed_hist), colors=[adjust_lightness(color,1.4), adjust_lightness(color,0.8)], levels=ctr_level2d(interp_smoothed_hist.copy(), [0.68, 0.95]), zorder=zorder, alpha=0.45)
+    ax.contour(interp_x_centers, interp_y_centers, np.transpose(interp_smoothed_hist), colors=[color, adjust_lightness(color,0.8)], linewidths=2., levels=ctr_level2d(interp_smoothed_hist.copy(), [0.68, 0.95]), zorder=zorder)
+
+
+##################################################################################################
+
+UVLF_Overzier = []
+UVLF_Bouwens = []
+UVLF_Casey = []
+
+for filepath in glob.iglob('../../Data/UVLF_HST_ST_model1/*__*.txt'):
+    data = np.loadtxt(filepath)
+    UVLF_Overzier.append(data)
+for filepath in glob.iglob('../../Data/UVLF_HST_ST_model1_Bouwens2016/*__*.txt'):
+    data = np.loadtxt(filepath)
+    UVLF_Bouwens.append(data)
+for filepath in glob.iglob('../../Data/UVLF_HST_ST_model1_Casey2014/*__*.txt'):
+    data = np.loadtxt(filepath)
+    UVLF_Casey.append(data)
+
+UVLF_Overzier = np.vstack(np.array(UVLF_Overzier))
+UVLF_Bouwens = np.vstack(np.array(UVLF_Bouwens))
+UVLF_Casey = np.vstack(np.array(UVLF_Casey))
+
+betadata = np.loadtxt("Beta_parameters.txt", unpack=True)
+betainterp = PchipInterpolator(betadata[0], betadata[1])
+dbetadMUVinterp = PchipInterpolator(betadata[0], betadata[2])
+
+def betaAverage(z, MUV):
+    if MUV < -19.5:
+        return dbetadMUVinterp(z) * (MUV + 19.5) + betainterp(z)
+    return (betainterp(z) + 2.33) * np.exp((dbetadMUVinterp(z) * (MUV + 19.5)) / (betainterp(z) + 2.33)) - 2.33
+
+@np.vectorize
+def AUV(z, MUV, index):
+    if z < 2.5 or z > 8:
+        return 0.
+    sigmabeta = 0.34
+    if index==0:
+        return max(0., 4.54 + 0.2 * np.log(10) * (2.07**2) * (sigmabeta**2) + 2.07 * betaAverage(z, MUV)) # Overzier 2011
+    if index==1:
+        return max(0., 3.36 + 0.2 * np.log(10) * (2.04**2) * (sigmabeta**2) + 2.04 * betaAverage(z, MUV)) # Casey 2014
+    if index==2:
+        return max(0., 2.45 + 0.2 * np.log(10) * (1.1**2) * (sigmabeta**2) + 1.1 * betaAverage(z, MUV)) # Bouwens 2016
+
+
+plt.figure(figsize=(24.,6.))
+ax1 = plt.subplot(131)
+ax2 = plt.subplot(132)
+ax3 = plt.subplot(133)
+ax1.tick_params(axis='x', which='major', pad=6)
+ax2.tick_params(axis='x', which='major', pad=6)
+ax3.tick_params(axis='x', which='major', pad=6)
+ax1.tick_params(axis='both', which='major', labelsize=26)
+ax1.tick_params(axis='both', which='minor', labelsize=26)
+ax2.tick_params(axis='both', which='major', labelsize=26)
+ax2.tick_params(axis='both', which='minor', labelsize=26)
+ax3.tick_params(axis='both', which='major', labelsize=26)
+ax3.tick_params(axis='both', which='minor', labelsize=26)
+
+for axis in ['top','bottom','left','right']:
+    ax1.spines[axis].set_linewidth(2.2)
+    ax2.spines[axis].set_linewidth(2.2)
+    ax3.spines[axis].set_linewidth(2.2)
+
+###############
+
+ax1.plot(MUV:=np.linspace(-23,-16, 100), AUV(6., MUV, 0), color=colors[3], lw=2.5)
+ax1.plot(MUV:=np.linspace(-23,-16, 100), AUV(6., MUV, 1), linestyle=linestyles[2], color=colors[1], lw=3.)
+ax1.plot(MUV:=np.linspace(-23,-16, 100), AUV(6., MUV, 2), linestyle=linestyles[3], color=colors[-1], lw=2.5)
+ax1.set_xlabel(r'$M_\mathrm{UV}$', labelpad=10, fontsize=30)
+ax1.set_ylabel(r'$A_\mathrm{UV}$', labelpad=12, fontsize=30)
+ax1.set_xlim(-23, -16)
+ax1.set_ylim(0., 1.3)
+
+patch_blue = mpatches.Patch(color=colors[3], lw=1.5, label=r"$\mathrm{Overzier\ 2011}$")
+patch_green = mpatches.Patch(color=colors[1], lw=1.5, label=r"$\mathrm{Casey\ 2014}$")
+patch_yellow = mpatches.Patch(color=colors[-1], lw=1.5, label=r"$\mathrm{Bouwens\ 2016}$")
+leg = ax1.legend(handles=[patch_blue, patch_green,patch_yellow], loc="upper right", frameon=False, markerfirst=False, prop={'size': 21}, handlelength=1.9, handletextpad=0.5)
+
+###############
+
+plot_hist2d(datax=UVLF_Overzier[:,-7], datay=UVLF_Overzier[:,2], ax=ax2, num_bins=20, weights=UVLF_Overzier[:,0], color=colors[3], zorder=3)
+plot_hist2d(datax=UVLF_Bouwens[:,-7], datay=UVLF_Bouwens[:,2], ax=ax2, num_bins=20, weights=UVLF_Bouwens[:,0], color=colors[-1], zorder=2)
+plot_hist2d(datax=UVLF_Casey[:,-7], datay=UVLF_Casey[:,2], ax=ax2, num_bins=20, weights=UVLF_Casey[:,0], color=colors[1], zorder=1)
+ax2.set_xlabel(r'$\Omega_\mathrm{m}$', labelpad=10, fontsize=30)
+ax2.set_ylabel(r'$\sigma_8$', labelpad=8, fontsize=30)
+ax2.set_xlim(0.2, 0.4)
+ax2.set_ylim(0.3, 1.3)
+
+###############
+
+plot_hist2d(datax=UVLF_Overzier[:,5], datay=UVLF_Overzier[:,2], ax=ax3, num_bins=20, weights=UVLF_Overzier[:,0], color=colors[3], zorder=3)
+plot_hist2d(datax=UVLF_Bouwens[:,5], datay=UVLF_Bouwens[:,2], ax=ax3, num_bins=20, weights=UVLF_Bouwens[:,0], color=colors[-1], zorder=2)
+plot_hist2d(datax=UVLF_Casey[:,5], datay=UVLF_Casey[:,2], ax=ax3, num_bins=20, weights=UVLF_Casey[:,0], color=colors[1], zorder=1)
+ax3.set_ylabel(r'$\sigma_8$', labelpad=8, fontsize=30)
+ax3.set_xlabel(r'$n_\mathrm{s}$', labelpad=10, fontsize=30)
+ax3.set_xlim(0.7, 1.3)
+ax3.set_ylim(0.3, 1.3)
+
+plt.savefig("Posteriors_cosmo_model1_alternative_dust.pdf")

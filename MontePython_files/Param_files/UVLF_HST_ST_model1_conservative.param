@@ -1,0 +1,58 @@
+data.experiments=['UVLF_HST_ST_model1_conservative', 'Pantheon']
+
+data.over_sampling=[1, 4, 1]
+
+data.parameters['sigma8']           = [0.8120, 0.1, 2., 0.3, 1, 'cosmo']
+data.parameters['omega_m']          = [0.1432, 0., 1., 0.02, 1, 'cosmo']
+data.parameters['omega_b']          = [2.236, 0., None, 0.5, 0.01, 'cosmo']
+data.parameters['n_s']              = [0.9649, 0.7, 1.3, 0.2, 1, 'cosmo']
+
+data.parameters['alphastar_z4']         = [-1.922069e-01, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['alphastar_z5']         = [-2.346127e-01, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['alphastar_z6']         = [-4.986107e-02, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['alphastar_z7']         = [-1.262821e-01, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['alphastar_z8']         = [-3.130802e-01, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['alphastar_z9']         = [-1.833977e-01, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['alphastar_z10']        = [-7.179678e-01, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['betastar_z4']          = [5.294542e-01, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['betastar_z5']          = [4.264118e-01, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['betastar_z6']          = [4.411925e-01, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['betastar_z7']          = [8.132927e-01, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['betastar_z8']          = [3.651364e-01, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['betastar_z9']          = [8.497828e-01, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['betastar_z10']         = [6.998242e-02, 0., 3., 0.2, 1, 'nuisance']
+data.parameters['logepsilonstar_z4']    = [-1.710300e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logepsilonstar_z5']    = [-1.885283e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logepsilonstar_z6']    = [-2.253500e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logepsilonstar_z7']    = [-2.348141e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logepsilonstar_z8']    = [-2.490328e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logepsilonstar_z9']    = [-2.695239e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logepsilonstar_z10']   = [-3.220030e+00, -4., 4., 0.4, 1, 'nuisance']
+data.parameters['logMc_z4']             = [1.234242e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['logMc_z5']             = [1.246237e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['logMc_z6']             = [1.385108e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['logMc_z7']             = [1.332870e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['logMc_z8']             = [1.253501e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['logMc_z9']             = [1.464665e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['logMc_z10']            = [1.076151e+01, 7., 15., 0.3, 1, 'nuisance']
+data.parameters['sigma_MUV']            = [0.5, 0.001, 3., 0.1, 1, 'nuisance']
+data.parameters['Q']                    = [2., 1.5, 2.5, 0.1, 1, 'nuisance']
+data.parameters['M']                    = [-19.42, None, None, 0.05,  1, 'nuisance']
+
+data.parameters['h']                     = [0.7, None, None, 0, 1, 'derived']
+data.parameters['Omega_m']               = [0.3, None, None, 0, 1, 'derived']
+
+data.cosmo_arguments['100*theta_s'] = 1.04110
+data.cosmo_arguments['tau_reio'] = 0.0544
+data.cosmo_arguments['k_pivot'] = 0.05
+data.cosmo_arguments['output'] = 'mPk'
+data.cosmo_arguments['P_k_max_1/Mpc'] = 30.
+data.cosmo_arguments['z_max_pk'] = 10.
+
+data.cosmo_arguments['m_ncdm'] = 0.06
+data.cosmo_arguments['N_ur'] = 2.0308
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['T_ncdm'] = 0.71611
+
+data.N=1000000
+data.write_step=1

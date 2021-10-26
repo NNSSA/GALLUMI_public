@@ -1,0 +1,16 @@
+UVLF_IllustrisTNG_ST_model1.c = 299792.458
+UVLF_IllustrisTNG_ST_model1.rho_crit = 2.77463e11
+UVLF_IllustrisTNG_ST_model1.kappaUV = 1.15e-28
+UVLF_IllustrisTNG_ST_model1.invMpctoinvYear = 3.066067275784999e-07
+UVLF_IllustrisTNG_ST_model1.AST = 0.3222
+UVLF_IllustrisTNG_ST_model1.aST = 0.707
+UVLF_IllustrisTNG_ST_model1.pST = 0.3
+UVLF_IllustrisTNG_ST_model1.deltaST = 1.686
+
+UVLF_IllustrisTNG_ST_model1.h_IllustrisTNG = 0.6774
+UVLF_IllustrisTNG_ST_model1.Omega_m_IllustrisTNG = 0.3089
+
+UVLF_IllustrisTNG_ST_model1.omegab_BBN = 0.02233
+UVLF_IllustrisTNG_ST_model1.omegab_BBN_error = 0.00036
+
+UVLF_IllustrisTNG_ST_model1.use_nuisance = ['alphastar', 'betastar', 'epsilonstar_slope', 'epsilonstar_icept', 'Mc_slope', 'Mc_icept', 'sigma_MUV', 'Q']
