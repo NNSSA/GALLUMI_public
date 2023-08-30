@@ -123,7 +123,7 @@ class UVLF_HST_Reed_model1(Likelihood):
         sigma2 =  cosmo.sigma_cb(np.power(3. * Mh / (4. * np.pi * rhoM), 1./3), z)
         functionf = 1./np.sqrt(sigma1**2 - sigma2**2)
         dgrowthdz = -cosmo.scale_independent_growth_factor_f(z) * cosmo.scale_independent_growth_factor(z) / (1.+z)
-        Mhdot = -(1+z) * cosmo.Hubble(z) * self.invMpctoinvYear * 1.686 * np.sqrt(2./np.pi) * Mh * functionf * dgrowthdz / cosmo.scale_independent_growth_factor(z)**2
+        Mhdot = -(1+z) * cosmo.Hubble(z) * self.invMpctoinvYear * 1.686 * np.sqrt(2./np.pi) * Mh * functionf * dgrowthdz / cosmo.scale_independent_growth_factor(z)
 
         return -2.5 * np.log10(epsilonstar * Mhdot / ((Mh/Mc)**alphastar + (Mh/Mc)**betastar) / self.kappaUV) + 51.63
 
