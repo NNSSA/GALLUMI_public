@@ -142,7 +142,7 @@ class UVLF_HST_ST_model1_powerspectrum(Likelihood):
         sigma1 = self.calculate_sigma(np.power(3. * Mh / Q / (4. * np.pi * rhoM), 1./3) / self.cM, min(ks), max(ks), cosmo.pk_cb_lin, z, As2, As3, As4)
         functionf = 1./np.sqrt(sigma1**2 - sigma**2)
         dgrowthdz = -cosmo.scale_independent_growth_factor_f(z) * cosmo.scale_independent_growth_factor(z) / (1.+z)
-        Mhdot = -(1+z) * cosmo.Hubble(z) * self.invMpctoinvYear * 1.686 * np.sqrt(2./np.pi) * Mh * functionf * dgrowthdz / cosmo.scale_independent_growth_factor(z)**2
+        Mhdot = -(1+z) * cosmo.Hubble(z) * self.invMpctoinvYear * 1.686 * np.sqrt(2./np.pi) * Mh * functionf * dgrowthdz / cosmo.scale_independent_growth_factor(z)
 
         return -self.AST * np.sqrt(2. * aST / np.pi) * (1. + np.power(np.power(sigma,2) / (aST * np.power(self.deltaST, 2)), self.pST)) * (self.deltaST / sigma) * np.exp(-aST * np.power(self.deltaST, 2) / (2. * np.power(sigma, 2))) * (rhoM / (Mh * sigma)) * dsigmadM, -2.5 * np.log10(epsilonstar * Mhdot / ((Mh/Mc)**alphastar + (Mh/Mc)**betastar) / self.kappaUV) + 51.63
 
