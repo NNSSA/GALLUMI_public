@@ -1,6 +1,6 @@
-<div style="display: flex; justify-content: center;">
+<p align="center">
   <img src="GALLUMI_logo.png" alt="GALLUMI Logo" width="50%" />
-</div>
+</p>
 
 # GALLUMI: A Galaxy Luminosity Function Pipeline for Cosmology and Astrophysics
 
