@@ -1,3 +1,7 @@
+<div style="text-align:center;">
+  <img src="GALLUMI_logo.png" alt="GALLUMI Logo" />
+</div>
+
 # GALLUMI: A Galaxy Luminosity Function Pipeline for Cosmology and Astrophysics
 
 Authors: Nashwan Sabti, Julian Muñoz and Diego Blas
