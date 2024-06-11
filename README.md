@@ -10,13 +10,6 @@ GALLUMI is a likelihood code that allows to extract cosmological and astrophysic
 
 This GitHub page contains 1) the GALLUMI likelihood code, 2) scripts to generate mock data, and 3) script to create plots.
 
-## Coming up
-
-- A detailed manual and an automated script to move files
-- A single likelihood file to run all simulations with
-- Turn-over term in the luminosity function to account for inefficient galaxy formation in low-mass halos
-- Option to use different window functions 
-
 ## Basic Usage of GALLUMI
 
 - Download the [MontePython] MCMC sampler. 
