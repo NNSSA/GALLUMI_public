@@ -1,13 +1,13 @@
-UVLF_HST_ST_model1.c = 299792.458
-UVLF_HST_ST_model1.rho_crit = 2.77463e11
-UVLF_HST_ST_model1.kappaUV = 1.15e-28
-UVLF_HST_ST_model1.invMpctoinvYear = 3.066067275784999e-07
-UVLF_HST_ST_model1.AST = 0.3222
-UVLF_HST_ST_model1.pST = 0.3
-UVLF_HST_ST_model1.deltaST = 1.686
-UVLF_HST_ST_model1.cM = 2.5
+UVLF_HST_ST_model1_powerspectrum.c = 299792.458
+UVLF_HST_ST_model1_powerspectrum.rho_crit = 2.77463e11
+UVLF_HST_ST_model1_powerspectrum.kappaUV = 1.15e-28
+UVLF_HST_ST_model1_powerspectrum.invMpctoinvYear = 3.066067275784999e-07
+UVLF_HST_ST_model1_powerspectrum.AST = 0.3222
+UVLF_HST_ST_model1_powerspectrum.pST = 0.3
+UVLF_HST_ST_model1_powerspectrum.deltaST = 1.686
+UVLF_HST_ST_model1_powerspectrum.cM = 2.5
 
-UVLF_HST_ST_model1.h_HST = 0.7
-UVLF_HST_ST_model1.Omega_m_HST = 0.3
+UVLF_HST_ST_model1_powerspectrum.h_HST = 0.7
+UVLF_HST_ST_model1_powerspectrum.Omega_m_HST = 0.3
 
-UVLF_HST_ST_model1.use_nuisance = ['alphastar', 'betastar', 'epsilonstar_slope', 'epsilonstar_icept', 'Mc_slope', 'Mc_icept', 'sigma_MUV', 'Q', 'logas2', 'logas3', 'logas4', 'aST']
+UVLF_HST_ST_model1_powerspectrum.use_nuisance = ['alphastar', 'betastar', 'epsilonstar_slope', 'epsilonstar_icept', 'Mc_slope', 'Mc_icept', 'sigma_MUV', 'Q', 'logas2', 'logas3', 'logas4', 'aST']
