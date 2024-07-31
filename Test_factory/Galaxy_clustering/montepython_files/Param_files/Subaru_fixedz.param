@@ -1,0 +1,43 @@
+data.experiments=['Subaru_Clustering_fixedz']
+
+data.over_sampling=[1, 10]
+
+data.parameters['sigma8']           = [0.8120, 0.81199, 0.812001, 0.00000001, 1, 'cosmo']
+data.parameters['omega_m']          = [0.1432, 0., 1., 0, 1, 'cosmo']
+data.parameters['omega_b']          = [2.236, 0., None, 0, 0.01, 'cosmo']
+data.parameters['n_s']              = [0.9649, 0.7, 1.3, 0, 1, 'cosmo']
+
+data.parameters['alphastar_central']              = [-1.060472e+00, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['betastar_central']               = [ 1.967682e-01, 0., 3., 0.3, 1, 'nuisance']
+data.parameters['log10epsilonstar_central']       = [-1.486363e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['log10Mc_central']                = [ 1.310162e+01, 7., 15., 1., 1, 'nuisance']
+data.parameters['sigma_MUV_central']              = [ 3.775997e-03, 0.001, 3., 0.1, 1, 'nuisance']
+
+data.parameters['alphastar_satellite']              = [-1.074339e+00, -3., 0., 0.2, 1, 'nuisance']
+data.parameters['betastar_satellite']               = [ 1.422784e+00, 0., 3., 0.3, 1, 'nuisance']
+data.parameters['log10epsilonstar_satellite']       = [-1.460382e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['log10Mc_satellite']                = [ 1.265072e+01, 7., 15., 1., 1, 'nuisance']
+data.parameters['sigma_MUV_satellite']              = [ 3.457153e-01, 0.001, 3., 0.1, 1, 'nuisance']
+
+data.parameters['log10Mmin_central']              = [8.142365e+00, 0., 16., 0.1, 1, 'nuisance']
+data.parameters['log10Mmin_satellite']            = [7.591348e+00, 0., 16., 0.1, 1, 'nuisance']
+data.parameters['Q']                              = [1.509009e+00, 1.5, 2.5, 0.1, 1, 'nuisance']
+data.parameters['A_c']                            = [1.553921e+00, 0., 5., 0.1, 1, 'nuisance']
+
+data.parameters['h']                     = [6.781000e-01, None, None, 0, 1, 'derived']
+data.parameters['Omega_m']               = [3.114264e-01, None, None, 0, 1, 'derived']
+
+data.cosmo_arguments['100*theta_s'] = 1.04110
+data.cosmo_arguments['tau_reio'] = 0.0544
+data.cosmo_arguments['k_pivot'] = 0.05
+data.cosmo_arguments['output'] = 'mPk'
+data.cosmo_arguments['P_k_max_1/Mpc'] = 500.
+data.cosmo_arguments['z_max_pk'] = 10.
+
+data.cosmo_arguments['m_ncdm'] = 0.06
+data.cosmo_arguments['N_ur'] = 2.0308
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['T_ncdm'] = 0.71611
+
+data.N=1000000
+data.write_step=1

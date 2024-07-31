@@ -1,0 +1,13 @@
+Subaru_Clustering_standard.c = 299792.458
+Subaru_Clustering_standard.rho_crit = 2.77463e11
+Subaru_Clustering_standard.kappaUV = 1.15e-28
+Subaru_Clustering_standard.invMpctoinvYear = 3.066067275784999e-07
+Subaru_Clustering_standard.AST = 0.3222
+Subaru_Clustering_standard.aST = 0.707
+Subaru_Clustering_standard.pST = 0.3
+Subaru_Clustering_standard.deltaST = 1.686
+
+Subaru_Clustering_standard.omegab_BBN = 0.02233
+Subaru_Clustering_standard.omegab_BBN_error = 0.00036
+
+Subaru_Clustering_standard.use_nuisance = ['alphastar_central', 'betastar_central', 'log10epsilonstar_central_slope', 'log10epsilonstar_central_icept', 'log10Mc_central_slope', 'log10Mc_central_icept', 'sigma_MUV_central', 'log10Mmin_central', 'alphastar_satellite', 'betastar_satellite', 'log10epsilonstar_satellite_slope', 'log10epsilonstar_satellite_icept', 'log10Mc_satellite_slope', 'log10Mc_satellite_icept', 'sigma_MUV_satellite', 'log10Mmin_satellite', 'Q', 'A_c']

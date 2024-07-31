@@ -1,0 +1,13 @@
+MTNG_Clustering_2halo.c = 299792.458
+MTNG_Clustering_2halo.rho_crit = 2.77463e11
+MTNG_Clustering_2halo.kappaUV = 1.15e-28
+MTNG_Clustering_2halo.invMpctoinvYear = 3.066067275784999e-07
+MTNG_Clustering_2halo.AST = 0.3222
+MTNG_Clustering_2halo.aST = 0.707
+MTNG_Clustering_2halo.pST = 0.3
+MTNG_Clustering_2halo.deltaST = 1.686
+
+MTNG_Clustering_2halo.omegab_BBN = 0.02233
+MTNG_Clustering_2halo.omegab_BBN_error = 0.00036
+
+MTNG_Clustering_2halo.use_nuisance = ['alphastar_central', 'betastar_central', 'log10epsilonstar_central_slope', 'log10epsilonstar_central_icept', 'log10Mc_central_slope', 'log10Mc_central_icept', 'sigma_MUV_central', 'log10Mmin_central', 'alphastar_satellite', 'betastar_satellite', 'log10epsilonstar_satellite_slope', 'log10epsilonstar_satellite_icept', 'log10Mc_satellite_slope', 'log10Mc_satellite_icept', 'sigma_MUV_satellite', 'log10Mmin_satellite', 'Q', 'A_c']
