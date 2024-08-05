@@ -1,0 +1,10 @@
+Galaxies_Poisson_Mstar.c = 299792.458
+Galaxies_Poisson_Mstar.rho_crit = 2.77463e11
+Galaxies_Poisson_Mstar.kappaUV = 1.15e-28
+Galaxies_Poisson_Mstar.invMpctoinvYear = 3.066067275784999e-07
+Galaxies_Poisson_Mstar.AST = 0.3222
+Galaxies_Poisson_Mstar.aST = 0.85
+Galaxies_Poisson_Mstar.pST = 0.3
+Galaxies_Poisson_Mstar.deltaST = 1.686
+
+Galaxies_Poisson_Mstar.use_nuisance = ['Gaussian_amp', 'Gaussian_mean', 'Gaussian_sigma']
