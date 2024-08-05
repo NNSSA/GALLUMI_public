@@ -1,0 +1,16 @@
+UVLF_HST_ST_model1_Gaussianbump.c = 299792.458
+UVLF_HST_ST_model1_Gaussianbump.rho_crit = 2.77463e11
+UVLF_HST_ST_model1_Gaussianbump.kappaUV = 1.15e-28
+UVLF_HST_ST_model1_Gaussianbump.invMpctoinvYear = 3.066067275784999e-07
+UVLF_HST_ST_model1_Gaussianbump.AST = 0.3222
+UVLF_HST_ST_model1_Gaussianbump.aST = 0.85
+UVLF_HST_ST_model1_Gaussianbump.pST = 0.3
+UVLF_HST_ST_model1_Gaussianbump.deltaST = 1.686
+
+UVLF_HST_ST_model1_Gaussianbump.h_HST = 0.7
+UVLF_HST_ST_model1_Gaussianbump.Omega_m_HST = 0.3
+
+UVLF_HST_ST_model1_Gaussianbump.omegab_BBN = 0.02233
+UVLF_HST_ST_model1_Gaussianbump.omegab_BBN_error = 0.00036
+
+UVLF_HST_ST_model1_Gaussianbump.use_nuisance = ['alphastar', 'betastar', 'epsilonstar_slope', 'epsilonstar_icept', 'Mc_slope', 'Mc_icept', 'sigma_MUV', 'Q', 'Gaussian_amp', 'Gaussian_mean', 'Gaussian_sigma']

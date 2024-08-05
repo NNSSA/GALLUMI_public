@@ -1,0 +1,46 @@
+data.experiments=['UVLF_HST_ST_model1_Gaussianbump']
+
+data.over_sampling=[1, 10]
+
+data.parameters['omega_b']      = [2.236, 2.2359999999, 2.236000001, 0.000000000001, 0.01, 'cosmo']
+data.parameters['omega_cdm']    = [0.1202, None, None, 0, 1, 'cosmo']
+data.parameters['h']            = [0.6727, None, None, 0, 1, 'cosmo']
+data.parameters['ln10^{10}A_s'] = [3.045, None, None, 0, 1, 'cosmo']
+data.parameters['n_s']          = [0.9649, None, None, 0, 1, 'cosmo']
+data.parameters['tau_reio']     = [0.0544, 0.004, None, 0, 1, 'cosmo']
+
+# UVLF nuisance
+
+data.parameters['alphastar']              = [-5.574881e-01, -3., 0, 0.2, 1, 'nuisance']
+data.parameters['betastar']               = [4.507568e-01, 0., 3., 0.1, 1, 'nuisance']
+data.parameters['epsilonstar_slope']      = [-1.963616e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['epsilonstar_icept']      = [-2.327702e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['Mc_slope']               = [1.986002e+00, -3., 3., 0.1, 1, 'nuisance']
+data.parameters['Mc_icept']               = [1.212496e+01, 7., 15., 0.5, 1, 'nuisance']
+data.parameters['sigma_MUV']              = [9.455191e-03, 0.001, 3., 0.1, 1, 'nuisance']
+data.parameters['Q']                      = [2.061804e+00, 1.5, 2.5, 0.1, 1, 'nuisance']
+data.parameters['Gaussian_amp']           = [0., 0., 100., 0.1, 1, 'nuisance']
+data.parameters['Gaussian_mean']          = [1., -0.6931471805, 20., 0.1, 1, 'nuisance']
+data.parameters['Gaussian_sigma']         = [0.1, 0.00001, 20., 0, 1, 'nuisance']
+
+# Derived parameters
+
+data.parameters['sigma8']          = [8.119212e-01, None, None, 0, 1, 'derived']
+data.parameters['Omega_m']         = [3.164555e-01, None, None, 0, 1, 'derived']
+
+# Other cosmo arguments
+
+data.cosmo_arguments['sBBN file'] = data.path['cosmo']+'/external/bbn/sBBN.dat'
+data.cosmo_arguments['k_pivot'] = 0.05
+data.cosmo_arguments['output'] = 'mPk, dTk'
+data.cosmo_arguments['P_k_max_1/Mpc'] = 40.
+data.cosmo_arguments['z_max_pk'] = 10.
+
+data.cosmo_arguments['m_ncdm'] = 0.06
+data.cosmo_arguments['N_ur'] = 2.0308
+data.cosmo_arguments['N_ncdm'] = 1
+data.cosmo_arguments['T_ncdm'] = 0.71611
+
+# data.cosmo_arguments['non linear'] = 'halofit'
+
+data.N=1000000
