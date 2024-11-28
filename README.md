@@ -31,7 +31,7 @@ If you make use of the GALLUMI code in your publication, please cite the papers 
 Chains are available upon request. 
 
 ## Contact
-Please email nsabti1@jh.edu for any questions :)
+Please email nash.sabti@gmail.com for any questions :)
 
 
 [MontePython]: <https://github.com/brinckmann/montepython_public>
